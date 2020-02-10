@@ -1,0 +1,40 @@
+{
+  "name": "robot-sample",
+  "version": "0.1.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "./node_modules/.bin/electron .",
+    "build": "rm -rf dist/ && build --x64",
+    "reinstall": "rm -rf node_modules/ && npm i && npm start",
+    "postinstall": "npm run rebuild",
+    "rebuild": "npm rebuild --runtime=electron --target=7.1.1 --disturl=https://atom.io/download/atom-shell --abi=64"
+  },
+  "build": {
+    "appId": "com.test.electron",
+    "win": {
+      "publisherName": [
+        ""
+      ],
+      "target": [
+        {
+          "target": "portable"
+        }
+      ]
+    },
+    "nsis": {
+      "deleteAppDataOnUninstall": true,
+      "packElevateHelper": false,
+      "differentialPackage": false
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergey-Churilin/robot-sample.git"
+  },
+  "devDependencies": {
+    "electron": "7.1.1",
+    "electron-builder": "20.38.5",
+    "robotjs": "^0.6.0"
+  }
+}
